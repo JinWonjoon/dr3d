@@ -1,0 +1,597 @@
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({            
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+        });
+    </script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title> Dr.3D</title>
+    <style type="text/css">
+        :root {
+            --small-thumb-border-radius: 2px;
+            --larger-thumb-border-radius: 3px;
+        }
+
+        html {
+            font-size: 14px;
+            line-height: 1.6;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        @media(min-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .base-grid,
+        .n-header,
+        .n-byline,
+        .n-title,
+        .n-conf,
+        .n-article,
+        .n-footer {
+            display: grid;
+            justify-items: stretch;
+            grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
+            grid-column-gap: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-column-gap: 8px;
+        }
+
+        @media(min-width: 768px) {
+            .base-grid,
+            .n-header,
+            .n-byline,
+            .n-title,
+            .n-conf,
+            .n-article,
+            .n-footer {
+                display: grid;
+                justify-items: stretch;
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 16px;
+            }
+            .grid {
+                grid-column-gap: 16px;
+            }
+        }
+
+        @media(min-width: 1000px) {
+            .base-grid,
+            .n-header,
+            .n-byline,
+            .n-title,
+            .n-conf,
+            .n-article,
+            .n-footer {
+                display: grid;
+                justify-items: stretch;
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 16px;
+            }
+            .grid {
+                grid-column-gap: 16px;
+            }
+        }
+
+        @media (min-width: 1180px) {
+            .base-grid,
+            .n-header,
+            .n-byline,
+            .n-conf,
+            .n-title,
+            .n-article,
+            .n-footer {
+                display: grid;
+                justify-items: stretch;
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 32px;
+            }
+            .grid {
+                grid-column-gap: 32px;
+            }
+        }
+
+        .base-grid {
+            grid-column: screen;
+        }
+
+        /* default grid column assignments */
+
+        .n-title>* {
+            grid-column: text;
+        }
+
+        .n-conf>* {
+            grid-column: text;
+        }
+
+        .n-article>* {
+            grid-column: text;
+        }
+
+        .n-header {
+            height: 0px;
+        }
+
+        .n-footer {
+            height: 60px;
+        }
+
+        .n-title {
+            padding: 4rem 0 1.5rem;
+        }
+
+        /* if comment, width is fixed to the boundary*/
+
+        .l-page {
+            grid-column: text;
+        }
+
+        .l-article {
+            grid-column: text;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+
+        .pixelated {
+            image-rendering: pixelated;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        /*------------------------------------------------------------------*/
+
+        /* title */
+
+        .n-title h1 {
+            font-family: "Barlow", system-ui, Arial, sans-serif;
+            color: #082333;
+            grid-column: text;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.1em;
+            margin: 0 0 0.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .n-title h1 {
+                font-size: 40px;
+            }
+        }
+
+        /*------------------------------------------------------------------*/
+
+        /* conf */
+
+        .n-conf h1 {
+            font-family: "Barlow", system-ui, Arial, sans-serif;
+            color: #082333;
+            grid-column: text;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.1em;
+            margin: 0 0 0.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .n-conf h1 {
+                font-size: 20px;
+            }
+        }
+
+        /*------------------------------------------------------------------*/
+
+        /* article */
+
+        .n-article {
+            color: rgb(33, 40, 53);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 2rem;
+        }
+
+        .n-article h2 {
+            contain: layout style;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 1.25em;
+            margin: 2rem 0 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .n-article {
+                line-height: 1.7;
+            }
+            .n-article h2 {
+                font-size: 36px;
+            }
+        }
+
+        /*------------------------------------------------------------------*/
+
+        /* byline */
+
+        .n-byline {
+            contain: style;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.8rem;
+            line-height: 1.8em;
+            padding: 1.5rem 0;
+            min-height: 1.8em;
+        }
+
+        .n-byline .byline {
+            grid-column: text;
+        }
+
+        .byline {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .grid {
+            display: grid;
+            grid-column-gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-column-gap: 16px;
+            }
+        }
+
+        .n-byline p {
+            margin: 0;
+        }
+
+        .n-byline h3 {
+            font-size: 0.6rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.5);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .n-byline .authors-affiliations {
+            grid-column-end: span 2;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /*------------------------------------------------------------------*/
+
+        /* figures */
+
+        .figure {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        figcaption,
+        .figcaption {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 12px;
+            line-height: 1.5em;
+        }
+
+        ul.authors {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        ul.authors li {
+            padding: 0 0.5rem;
+            display: inline-block;
+        }
+
+        ul.authors sup {
+            color: rgb(126, 126, 126);
+        }
+
+        ul.authors.affiliations {
+            margin-top: 0.5rem;
+        }
+
+        ul.authors.affiliations li {
+            color: rgb(126, 126, 126);
+        }
+
+        /* Download section columns. This switches between two layouts::after - two columns on larger viewport sizes: side-by-side paper thumb and links - single column: no thumb */
+
+        .download-section {
+            display: grid;
+            grid-template-areas: "links";
+        }
+
+        .download-section h4 {
+            margin-left: 2.5rem;
+            display: block;
+        }
+
+        .download-thumb {
+            grid-area: thumb;
+            display: none;
+        }
+
+        .download-links {
+            grid-area: links;
+        }
+
+        img.dropshadow {
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @media(min-width: 1180px) {
+            .download-section {
+                display: grid;
+                grid-template-areas: "thumb links";
+            }
+            .download-thumb {
+                display: block;
+            }
+        }
+
+        /* For BibTeX */
+
+        pre {
+            font-size: 0.9em;
+            padding-left: 7px;
+            padding-right: 7px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 3px;
+            background-color: rgb(235, 235, 235);
+            overflow-x: auto;
+        }
+
+        /* video caption */
+
+        .video {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .figurecaption {
+            display: flex;
+            font-size: 16px;
+            line-height: 1.5em;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .disable-selection {
+            user-select: none;
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer */
+            -khtml-user-select: none;
+            /* KHTML browsers (e.g. Konqueror) */
+            -webkit-user-select: none;
+            /* Chrome, Safari, and Opera */
+            -webkit-touch-callout: none;
+            /* Disable Android and iOS callouts*/
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h3.figtitle {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .fig-title-line {
+            grid-template-columns: 2fr 0.75fr;
+        }
+
+        .fig-thumb-image-row {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .fig-thumb-image-row-item {
+            width: 100%;
+            min-height: auto;
+            border-radius: var(--small-thumb-border-radius);
+        }
+
+        .fig-dataset-button {
+            border-color: rgba(0, 0, 0, 0);
+            border-width: 1px;
+            border-style: solid;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+
+        .fig-dataset-button.active {
+            border-color: rgba(0, 0, 0, 0.7);
+            border-width: 1px;
+            border-style: solid;
+            opacity: 1.0;
+        }
+
+        .grid {
+            display: grid;
+            grid-column-gap: 8px;
+        }
+
+        .fig-3-image-row {
+            margin-top: 1em;
+            grid-template-columns: 1fr 1.3fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .fig-3-image-item {
+            justify-self: center;
+            align-self: center;
+            width: 100%;
+            border-radius: var(--larger-thumb-border-radius);
+        }
+
+        /*---------------------------------------------------------------------*/
+
+        .fig-slider {
+            grid-template-columns: auto 2fr;
+            grid-template-rows: 1fr;
+            margin-top: 1em;
+            align-items: start;
+            justify-content: center;
+        }
+
+        .fig-slider img.play_button {
+            margin-right: 8px;
+            cursor: pointer;
+            justify-self: center;
+        }
+
+        .fig-slider svg {
+            touch-action: none;
+        }
+
+        .fig-preload {
+            display: none;
+        }
+
+        /*---------------------------------------------------------------------*/
+    </style>
+    <!-- inline stylesheet files into the above<style> element -->
+    <!--<link href="./bigcolor_files/css" rel="stylesheet"> -->
+    <!--<link as="image" href="./bigcolor_files/paper-pdf-512.png" rel="preload"> -->
+    <!--<link as="image" href="./bigcolor_files/stylegan3-teaser-1920x1006.png" rel="preload"> -->
+</head>
+
+<body>
+    <div class="n-header"></div>
+    <div class="n-title">
+        <h1> Dr.3D: Adapting 3D GANs to<br> Artistic Drawings</h1>
+    </div>
+    <div class="n-byline">
+        <div class="byline">
+            <ul class="authors">
+                <li> Wonjoon Jin <sup> 1 </sup></li>
+                <li> Nuri Ryu <sup> 1 </sup></li>
+                <li> Geonung Kim <sup> 1 </sup></li><br>
+                <li> Seung-Hwan Baek <sup> 1 </sup></li>
+                <li> Sunghyun Cho <sup> 1, 2 </sup></li>
+            </ul>
+            <ul class="authors affiliations">
+                <li> <sup> 1 </sup> POSTECH</li>
+                <li> <sup> 2 </sup> Pebblous</li>
+            </ul>
+        </div>
+    </div>
+    <div class="n-article">
+        <div class="l-article"> <img src="/assets/Dr3D/thumbnail.png" width="100%"></div>
+        <h2 id="video"> Fast-Forward</h2>
+        <video>
+            <source src="/assets/Dr3D/Papers_549.mp4" type="video/mp4">
+        </video>
+        <h2 id="abstract"> Abstract</h2>
+        <p> While 3D GANs have recently demonstrated the high-quality synthesis of multi-view consistent images and 3D shapes, they are mainly restricted to photo-realistic human portraits. This paper aims to extend 3D GANs to a different, but meaningful visual form: artistic portrait drawings. However, extending existing 3D GANs to drawings is challenging due to the inevitable geometric ambiguity present in drawings. To tackle this, we present Dr.3D, a novel adaptation approach that adapts an existing 3D GAN to artistic drawings. Dr.3D is equipped with three novel components to handle the geometric ambiguity: a deformation-aware 3D synthesis network, an alternating adaptation of pose estimation and image synthesis, and geometric priors. Experiments show that our approach can successfully adapt 3D GANs to drawings and enable multi-view consistent semantic editing of drawings.</p>
+        <h2 id="links"> Links</h2>
+        <div class="grid download-section">
+            <div class="download-thumb"> <a href="https://kimgeonung.github.io/bigcolor" target="_blank"> <img class="dropshadow" src="/assets/Dr3D/paper_page.png" width="340px"> </a></div>
+            <div class="download-links">
+                <ul>
+                    <li> <a href="/assets/Dr3D/Dr3D_main.pdf" target="_blank"> Paper </a></li>
+                    <li> <a href="/assets/Dr3D/Dr3D_supp.pdf" target="_blank"> Supplement </a></li>
+                    <li> <a href="" target="_blank"> Code release on GitHub (coming soon) </a></li>
+                    <li> <a href="" target="_blank"> ArXiv (coming soon) </a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="framework"> Deformation-aware 3D Synthesis Network</h2>
+        <div class="l-page fig">
+            <div class="l-article"> <img src="/assets/Dr3D/deform.png" width="100%"></div>
+            <div class="figurecaption">
+                <div>
+                    <!-- <strong> Overall framework for Dr.3D</strong> --></div>
+            </div>
+        </div>
+        <p> Network architecture of a deformation-aware 3D synthesis network. The network consists of a deformation network, a mapping network, a feature generator and a volume rendering module. The network takes latent codes $z_d$ and z, and a camera pose parameter $\theta$ as inputs, and synthesizes an image in a multi-view consistent way.
+        </p>
+        <h2 id="framework"> Alternating Adaptation and Geometric Priors</h2>
+        <div class="l-page fig">
+            <div class="l-article"> <img src="/assets/Dr3D/alternating.png" width="100%"></div>
+            <div class="figurecaption">
+                <div>
+                    <!-- <strong> Overall framework for Dr.3D</strong> --></div>
+            </div>
+        </div>
+        <p> Our approach alternatingly adapts the deformation-aware 3D synthesis network and the pose-estimation network. In order to guide the alternating adaptation process to a proper solution at early iterations, we introduce depth similarity loss $L_d$, normal smoothness loss $L_n$, and pose loss $L_p$.</p>
+        <h2 id="videos"> Results</h2>
+        <p>
+            <!-- The first two videos demonstrate... -->
+        </p>
+        <div class="l-page fig">
+            <div class="l-article"> <img src="/assets/Dr3D/result1.png" width="100%"></div>
+            <div class="figurecaption">
+                <div> <strong> Figure 1: 3D-aware drawing synthesis results by Dr.3D. </strong></div>
+            </div>
+        </div>
+        <p>
+            <!-- The following images show ... -->
+        </p>
+        <div class="l-page fig">
+            <div class="l-article"> <img src="/assets/Dr3D/edit.png" width="100%"></div>
+            <div class="figurecaption">
+                <div> <strong> Figure 2: Semantic editing of input drawings. </strong></div>
+            </div>
+        </div>
+        <p>
+            <!-- The following images show ... -->
+        </p>
+        <div class="l-page fig">
+            <div class="l-article"> 
+            <video>
+                <source src="/assets/Dr3D/novel.mp4" type="video/mp4">
+            </video>
+            </div>
+            <div class="figurecaption">
+                <div> <strong> Video 1: Novel view synthesis of an input drawing. </strong></div>
+            </div>
+        </div>
+        <p>
+            <!-- The following images show ... -->
+        </p>
+        <h2 id="citation"> Citation</h2>
+        <pre><code> @inproceedings{Jin2022Dr3D,
+  title     = {Dr.3D: Adapting 3D GANs to Artistic Drawings},
+  author    = {Wonjoon Jin,Nuri Ryu,Geonung Kim,Seung-Hwan Baek,Sunghyun Cho},
+  booktitle = {Proceedings of the ACM (SIGGRAPH Asia)},
+  year      = {2022}}</code></pre>
+        <div class="n-footer"></div>
+</body>
+
+</html>
