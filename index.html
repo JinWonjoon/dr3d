@@ -1,13 +1,14 @@
 <html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script type="text/x-mathjax-config;executed=true">
-        MathJax.Hub.Config({            
-            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
-        });
-    </script>
-    <script type="text/javascript"
-      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
+    <head>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({            
+                tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+            });
+        </script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    </head>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -524,8 +525,8 @@
             <div class="download-thumb"> <a href="https://jinwonjoon.github.io/dr3d/" target="_blank"> <img class="dropshadow" src="./Dr.3D_files/paper_page.png" width="340px"> </a></div>
             <div class="download-links">
                 <ul>
-                    <li> <a href="https://jinwonjoon.github.io/dr3d/assets/Dr3D/Dr3D_main.pdf" target="_blank"> Paper </a></li>
-                    <li> <a href="https://jinwonjoon.github.io/dr3d/assets/Dr3D/Dr3D_supple.pdf" target="_blank"> Supplement </a></li>
+                    <li> <a href="https://jinwonjoon.github.io/dr3d/docs/assets/Dr3D/Dr3D_main.pdf" target="_blank"> Paper </a></li>
+                    <li> <a href="https://jinwonjoon.github.io/dr3d/docs/assets/Dr3D/Dr3D_supple.pdf" target="_blank"> Supplement </a></li>
                     <li> <a href="" target="_blank"> Code release on GitHub (coming soon) </a></li>
                     <li> <a href="" target="_blank"> ArXiv (coming soon) </a></li>
                 </ul>
@@ -539,7 +540,7 @@
                     <!-- <strong> Overall framework for Dr.3D</strong> --></div>
             </div>
         </div>
-        <p> Network architecture of a deformation-aware 3D synthesis network. The network consists of a deformation network, a mapping network, a feature generator and a volume rendering module. The network takes latent codes $z_d$ and z, and a camera pose parameter $\theta$ as inputs, and synthesizes an image in a multi-view consistent way.
+        <p> Network architecture of a deformation-aware 3D synthesis network. The network consists of a deformation network, a mapping network, a feature generator and a volume rendering module. The network takes latent codes $z_d$ and $z$, and a camera pose parameter $\theta$ as inputs, and synthesizes an image in a multi-view consistent way.
         </p>
         <h2 id="alter"> Alternating Adaptation and Geometric Priors</h2>
         <div class="l-page fig">
@@ -549,7 +550,7 @@
                     <!-- <strong> Overall framework for Dr.3D</strong> --></div>
             </div>
         </div>
-        <p> Our approach alternatingly adapts the deformation-aware 3D synthesis network and the pose-estimation network. In order to guide the alternating adaptation process to a proper solution at early iterations, we introduce depth similarity loss $L_d$, normal smoothness loss $L_n$, and pose loss $L_p$.</p>
+        <p> Our approach alternatingly adapts the deformation-aware 3D synthesis network and the pose-estimation network. In order to guide the alternating adaptation process to a proper solution at early iterations, we introduce depth similarity loss $\mathcal{L}_d$, normal smoothness loss $\mathcal{L}_n$, and pose loss $\mathcal{L}_p$.</p>
         <h2 id="results"> Results</h2>
         <p>
             <!-- The first two videos demonstrate... -->
